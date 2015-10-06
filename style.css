@@ -83,25 +83,15 @@ a:hover {
   box-shadow: 1px 2px rgba(0,0,0,0.4);
   cursor: pointer;
 }
+.btn[disabled]:hover {
+  transform: none;
+  box-shadow: none;
+  cursor: default;
+}
 .btn_big {
   font-size: 16px;
   line-height: 55px;
   padding: 0 49px;
-}
-input {
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.451);
-  width: 343px;
-  border: none;
-  outline: none;
-  margin-right: 5px;
-  height: 55px;
-  line-height: 55px;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
-  color: #ffffff;
-  font-size: 16px;
-  text-transform: uppercase;
-  padding: 0 15px;
 }
 
 /*
@@ -182,6 +172,51 @@ nav #logo::before {
   height: 58px;
   background: url(img/logo.png) 0 0 no-repeat;
   background-size: cover;
+}
+
+/*
+ ______
+|  ____|
+| |__      ___    _ __   _ __ ___
+|  __|    / _ \  | '__| | '_ ` _ \
+| |      | (_) | | |    | | | | | |
+|_|       \___/  |_|    |_| |_| |_|
+
+ */
+input {
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.451);
+  width: 343px;
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  height: 55px;
+  line-height: 55px;
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 0 15px;
+}
+button {
+  transition: all 0.1s ease !important;
+}
+button span {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+button span[rel="sent"] {
+  display: none;
+}
+button[data-sent] {
+  background-color: #6dd34c;
+}
+button[data-sent] span {
+  display: none;
+}
+button[data-sent] span[rel="sent"] {
+  display: block;
 }
 
 /*
@@ -274,4 +309,7 @@ main.quote > section p::before {
  */
 .clearfix {
   overflow: auto;
+}
+.hidden {
+  display: none;
 }

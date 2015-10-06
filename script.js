@@ -1,12 +1,14 @@
-$('a[href*=#]:not([href=#])').click(function() {
- if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-   var target = $(this.hash);
-   target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-   if (target.length) {
-     $('html,body').animate({
-       scrollTop: target.offset().top
-     }, 1000);
-     return false;
-   }
- }
-});
+var Babelfish = new function() {
+  var self = this;
+  this.invite = false;
+
+  this.init = function init() {
+    document.getElementById('ifrm').setAttribute('onload', 'if(Babelfish.invite) {Babelfish.inviteSent();}');
+  };
+
+  this.inviteSent = function inviteSent() {
+    document.getElementById('send_invite').dataset.sent = true;
+    document.getElementById('send_invite').setAttribute('disabled', true);
+  };
+};
+window.onload = Babelfish.init;
