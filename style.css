@@ -46,7 +46,7 @@ html {
  */
 body {
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: #595d66;
   font-size: 18px;
   line-height: 27px;
@@ -64,7 +64,7 @@ a:hover {
 }
 .btn {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400;
   text-align: center;
   line-height: 34px;
   display: inline-block;
@@ -73,7 +73,6 @@ a:hover {
   text-decoration: none;
   padding: 0 19px;
   border-radius: 3px;
-  text-transform: uppercase;
   transition: transform 0.1s ease;
   border: none;
   outline: none;
@@ -89,9 +88,10 @@ a:hover {
   cursor: default;
 }
 .btn_big {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 55px;
   padding: 0;
+  border-radius: 6px;;
 }
 .btn_big i {
   font-size: 24px;
@@ -108,38 +108,34 @@ a:hover {
  */
 header {
   position: relative;
+  background: #33b6cb url(img/header-bg-center.png) center center no-repeat;
 }
 header a:hover {
   text-decoration: none !important;
 }
 header > section {
   height: 380px;
-  background: url(img/header-bg-color.png);
   text-align: center;
   color: #ffffff;
 }
 header h1 {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 300;
-  width: 560px;
-  margin: 53px auto 0;
   display: inline-block;
-  text-transform: uppercase;
   line-height: initial;
+  margin: 57px auto 5px;
 }
 header h2 {
-  width: 560px;
   font-size: 28px;
-  font-weight: 300;
-  margin-bottom: 47px;
-  margin-top: 10px;
+  font-weight: 400;
   line-height: initial;
+  margin-bottom: 47px;
 }
 nav {
   position: relative;
-  height: 120px;
   padding-top: 46px;
   text-align: right;
+  height: 120px;
 }
 nav a {
   display: inline-block;
@@ -155,26 +151,14 @@ nav #logo {
   position: absolute;
   top: 31px;
   left: 0;
-  margin-left: 0;
-  padding-left: 130px;
-  height: 58px;
-  line-height: 58px;
-  font-size: 20px;
-  letter-spacing: 2px;
-  text-transform: none;
-  color: #505050;
-}
-nav #logo::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 236px;
+  height: 63px;
+  text-indent: -999999px;
+  background: url(img/logo.svg) 0 0 no-repeat;
+  background-size: cover;
   padding: 0;
   margin: 0;
-  width: 110px;
-  height: 58px;
-  background: url(img/logo.png) 0 0 no-repeat;
-  background-size: cover;
+  font-size: 0;
 }
 
 /*
@@ -186,21 +170,88 @@ nav #logo::before {
 |_|       \___/  |_|    |_| |_| |_|
 
  */
-input {
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.451);
-  width: 343px;
+@-webkit-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to   { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to   { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to   { width:0; background:transparent; }
+}
+.group {
+  position:relative;
+  display:block;
+  vertical-align:top;
+  margin-bottom:20px;
+  width:300px;
+}
+.group input {
+  font-size: 20px;
+  display: block;
+  width: 300px;
   border: none;
-  outline: none;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #ffffff;
+  background: #33b6cb;
+  padding: 18px 0 10px 0;
   color: #ffffff;
-  font-size: 16px;
-  text-transform: uppercase;
-  line-height: 55px;
-  height: 55px;
-  padding: 0 15px;
-  margin-right: 5px;
-  vertical-align: top;
+  font-weight: 300;
+  margin: 0 auto;
+  text-align: center;
+}
+.group input:focus {
+  outline: none;
+}
+.group label {
+  color:#ffffff;
+  font-size:20px;
+  font-weight:300;
+  position:absolute;
+  pointer-events:none;
+  top:17px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+  width:300px;
+  left:0;
+}
+.group input:focus ~ label,
+.group input:valid ~ label {
+  top:-20px;
+  font-size:14px;
+  color: #91fff2;
+}
+.group .bar {
+  position:relative;
+  display:block;
+  width:300px;
+  margin: 0 auto;
+}
+.group .bar:before,
+.group .bar:after {
+  content:'';
+  height:3px;
+  width:0;
+  bottom:2px;
+  position:absolute;
+  background: #18546f;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+  margin:0;
+}
+.group .bar:before {
+  left:50%;
+}
+.group .bar:after {
+  right:50%;
+}
+.group input:focus ~ .bar:before,
+.group input:focus ~ .bar:after {
+  width:50%;
 }
 button span {
   display: inline-block;
@@ -208,10 +259,11 @@ button span {
   margin: 0;
   position: absolute;
   top: 0;
-  width: 100%;
-  background-color: #d3306f;
+  background-color: #153e50;
   left: 0;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  width: 100%;
+  color: #91fff2;
 }
 button span[rel="sent"] {
   left: 100%;
@@ -244,9 +296,8 @@ main > section p {
   padding: 0;
 }
 section h3 {
-  text-transform: uppercase;
   font-weight: 500;
-  color: #47434a;
+  color: #18546f;
   font-size: 30px;
   margin-bottom: 31px;
   padding: 0;
@@ -258,12 +309,11 @@ section h3::before {
   left: 0;
   top: 56px;
   width: 4px;
+  background-color: #389ab6;
   height: 21px;
-  background-color: #d9517d;
 }
 main.quote {
-  background: #f4f4f4;
-  color: #47434a;
+  background: #eaf5f8;
 }
 main.quote blockquote {
   margin: 0;
@@ -275,7 +325,7 @@ main.quote cite {
   padding: 0;
 }
 main.quote > section {
-  padding-left: 90px;
+  padding-left: 50px;
 }
 main.quote > section h3 {
   font-weight: 300;
@@ -283,9 +333,9 @@ main.quote > section h3 {
   line-height: initial;
 }
 main.quote > section h3::before {
-  width: 56px;
-  height: 48px;
-  background: transparent url(/img/quote.png) 0 0 no-repeat;
+  width: 25px;
+  height: 21px;
+  background: transparent url(img/quote.png) 0 0 no-repeat;
   background-size: cover;
 }
 main.quote > section p {
@@ -296,10 +346,11 @@ main.quote > section p::before {
   content: '';
   width: 58px;
   height: 58px;
-  background: url(/img/avatar.jpg) 0 0 no-repeat;
+  background: url(img/avatar.jpg) 0 0 no-repeat;
   position: absolute;
   left: 0;
   padding: 0;
+  border-radius: 50%;
 }
 
 /*
@@ -320,13 +371,15 @@ main.quote > section p::before {
 
 button.btn {
   transition: all 0.1s ease !important;
-  width: 260px;
+  width: 206px;
   height: 55px;
   background: transparent;
   overflow: hidden;
-  display: inline-block;
   position: relative;
+  display: inline-block;
 }
 button.btn span[rel="sent"] {
-  background-color: #6dd34c;
+  background-color: #65ffed;
+  color: #153e50;
+  font-weight: 500;
 }
