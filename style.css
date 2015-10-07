@@ -284,6 +284,10 @@ main:first-of-type > section,
 main:last-of-type > section {
   border-top: none;
 }
+main:last-of-type > section {
+  margin-top: 0 !important;
+  padding: 20px 0;
+}
 main > section p {
   margin: 0;
   padding: 0;
@@ -355,6 +359,24 @@ main[name="localization"] > section {
 }
 
 /*
+ ______                                      _
+|  ____|                                    | |
+| |__      ___    _ __   _ __ ___    _   _  | |   __ _
+|  __|    / _ \  | '__| | '_ ` _ \  | | | | | |  / _` |
+| |      | (_) | | |    | | | | | | | |_| | | | | (_| |
+|_|       \___/  |_|    |_| |_| |_|  \__,_| |_|  \__,_|
+
+ */
+main[name="formula"] {
+  background: #eaf5f8;
+}
+main[name="formula"] > section {
+  background: url(img/formula-bg.png) center center no-repeat;
+  height: 350px;
+  border-top: 0;
+}
+
+/*
  ______                   _
 |  ____|                 | |
 | |__      ___     ___   | |_    ___   _ __
@@ -364,11 +386,10 @@ main[name="localization"] > section {
 
  */
 main[name="footer"] {
-  background: #eaf5f8;
-}
-main[name="footer"] > section {
-  background: url(img/footer-bg.png) center center no-repeat;
-  height: 350px;
+  background: #153e50;
+  color: #91fff2;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 /*
