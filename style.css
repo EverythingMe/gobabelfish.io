@@ -52,7 +52,7 @@ body {
   line-height: 27px;
 }
 a {
-  color: #d3306f;
+  color: #ffffff;
   text-decoration: none;
 }
 a:hover {
@@ -342,6 +342,7 @@ main[name="demo"] {
 main[name="demo"] iframe {
   width: 856px;
   height: 535px;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.20);;
 }
 
 /*
