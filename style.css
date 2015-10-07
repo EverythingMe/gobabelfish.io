@@ -58,6 +58,10 @@ a {
 a:hover {
   text-decoration: underline;
 }
+iframe {
+  margin: 0;
+  padding: 0;
+}
 .container {
   margin: auto;
   width: 1047px;
@@ -109,6 +113,7 @@ a:hover {
 header {
   position: relative;
   background: #33b6cb url(img/header-bg-center.png) center center no-repeat;
+  background-size: cover;
 }
 header a:hover {
   text-decoration: none !important;
@@ -312,7 +317,10 @@ section h3::before {
   background-color: #389ab6;
   height: 21px;
 }
-main.quote {
+main.odd {
+  background: #eaf5f8;
+}
+/*main.quote {
   background: #eaf5f8;
 }
 main.quote blockquote {
@@ -351,7 +359,7 @@ main.quote > section p::before {
   left: 0;
   padding: 0;
   border-radius: 50%;
-}
+}*/
 
 /*
   _    _   _     _   _
